@@ -19,9 +19,12 @@
          temp.ang = getangle(temp.delta_x, temp.delta_y);
          temp.ndir = getdir(temp.delta_x, temp.delta_y);
          with (findimg(2)) {
+         //Player Direction up
          //Lazer startPoint
+         if (player.dir == 0){
          x = player.x + 0.3 + cos(temp.ang) * 0.10;
          y = player.y - 1.2 - sin(temp.ang) * 0.10;
+         
          image = "green.png";
          findimg(2).zoom=.1;
          //Lazer Stream
@@ -47,12 +50,108 @@
     showimg 5,green.png,mousex,mousey;
     findimg(5).zoom=.0;
     }
+    //Player Direction left
+         //Lazer startPoint
+         if (player.dir == 1){
+         x = player.x - 1.2 + cos(temp.ang) * 0.10;
+         y = player.y + 1.2 - sin(temp.ang) * 0.10;
+         
+         image = "green.png";
+         findimg(2).zoom=.1;
+         //Lazer Stream
+         //temp.imageX=mousex;
+         //temp.imageY=mousey;
+         temp.imageX=player.x - 1.2 + cos(temp.ang) * 0.10;
+         temp.imageY=player.y + 1.2 - sin(temp.ang) * 0.10;
+         //line 1-D polygon
+     with(findimg(4)){
+         polygon={
+             temp.imageX - mouse.x,
+             temp.imageY - mouse.y,
+   
+             temp.imageX - y = cos(temp.ang),
+             temp.imageY - x * -pi * sin(temp.ang)
+             };
+             layer=2;
+             red=0;
+             green=1;
+             blue=0.5;
+            }
+    //Lazer endPoint
+    showimg 5,green.png,mousex,mousey;
+    findimg(5).zoom=.0;
+    }
  
+ //Player Direction down
+         //Lazer startPoint
+         if (player.dir == 2){
+         x = player.x - 1.2 + cos(temp.ang) * 0.10;
+         y = player.y + 1.2 - sin(temp.ang) * 0.10;
+         
+         image = "green.png";
+         findimg(2).zoom=.1;
+         //Lazer Stream
+         //temp.imageX=mousex;
+         //temp.imageY=mousey;
+         temp.imageX=player.x - 1.2 + cos(temp.ang) * 0.10;
+         temp.imageY=player.y + 1.2 - sin(temp.ang) * 0.10;
+         //line 1-D polygon
+     with(findimg(4)){
+         polygon={
+             temp.imageX + mouse.x,
+             temp.imageY + mouse.y,
+   
+             temp.imageX + x * -pi * cos(temp.ang),
+             temp.imageY + y = sin(temp.ang)
+             };
+             layer=2;
+             red=0;
+             green=1;
+             blue=0.5;
+            }
+    //Lazer endPoint
+    showimg 5,green.png,mousex,mousey;
+    findimg(5).zoom=.0;
+    }
+ 
+ //Player Direction right
+         //Lazer startPoint
+         if (player.dir == 3){
+         x = player.x - 1.2 + cos(temp.ang) * 0.10;
+         y = player.y + 1.2 - sin(temp.ang) * 0.10;
+         
+         image = "green.png";
+         findimg(2).zoom=.1;
+         //Lazer Stream
+         //temp.imageX=mousex;
+         //temp.imageY=mousey;
+         temp.imageX=player.x - 1.2 + cos(temp.ang) * 0.10;
+         temp.imageY=player.y + 1.2 - sin(temp.ang) * 0.10;
+         //line 1-D polygon
+     with(findimg(4)){
+         polygon={
+             temp.imageX + mouse.x,
+             temp.imageY + mouse.y,
+   
+             temp.imageX + y = cos(temp.ang),
+             temp.imageY + x * -pi * sin(temp.ang)
+             };
+             layer=2;
+             red=0;
+             green=1;
+             blue=0.5;
+            }
+    //Lazer endPoint
+    showimg 5,green.png,mousex,mousey;
+    findimg(5).zoom=.0;
+    }
+ }
     with (findimg(3)) {
         x = mousex;
         y = mousey - 0.5;
     }
    } 
+   
    else 
    { 
        hideimg(2);
